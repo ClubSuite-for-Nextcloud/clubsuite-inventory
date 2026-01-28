@@ -26,7 +26,7 @@ ClubSuite Inventory verwaltet Ihr Vereinseigentum:
 ### Manuelle Installation
 ```bash
 cd /path/to/nextcloud/apps
-git clone https://github.com/clubsuite/clubsuite-inventory.git
+git clone https://github.com/ClubSuite-for-Nextcloud/clubsuite-inventory.git
 php occ app:enable clubsuite-inventory
 ```
 
@@ -50,7 +50,7 @@ AGPL v3 – Siehe [LICENSE](LICENSE)
 
 ## 🐛 Bugs & Feature Requests
 
-[GitHub Issues](https://github.com/clubsuite/clubsuite-inventory/issues)
+[GitHub Issues](https://github.com/ClubSuite-for-Nextcloud/clubsuite-inventory/issues)
 
 ---
 
