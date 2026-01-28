@@ -1,0 +1,9 @@
+{
+  "translations": {
+    "app": "Inventar & Ausleihe",
+    "items": "Items",
+    "categories": "Categories",
+    "loans": "Loans"
+  },
+  "pluralForm": "nplurals=2; plural=(n != 1);"
+}
