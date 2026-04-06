@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OCA\ClubSuiteInventory\Service;
 
-use DateTime;
+use DateTimeImmutable;
 use Exception;
 use OCA\ClubSuiteInventory\Db\Item;
 use OCA\ClubSuiteInventory\Db\ItemMapper;
@@ -37,7 +37,7 @@ class ItemService {
         $item = new Item();
         $this->hydrate($item, $data);
         
-        $now = new DateTime();
+        $now = new DateTimeImmutable();
         $item->setCreatedAt($now);
         $item->setUpdatedAt($now);
 
@@ -52,7 +52,7 @@ class ItemService {
         $item = $this->mapper->findById($id);
         
         $this->hydrate($item, $data);
-        $item->setUpdatedAt(new DateTime());
+        $item->setUpdatedAt(new DateTimeImmutable());
 
         return $this->mapper->update($item);
     }
@@ -76,7 +76,7 @@ class ItemService {
             $item->setSerialNumber($data['serialNumber']);
         }
         if (isset($data['acquisitionDate'])) {
-            $date = $data['acquisitionDate'] ? new DateTime($data['acquisitionDate']) : null;
+            $date = $data['acquisitionDate'] ? new DateTimeImmutable($data['acquisitionDate']) : null;
             $item->setAcquisitionDate($date);
         }
         if (isset($data['value'])) {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OCA\ClubSuiteInventory\Db;
 
-use DateTime;
+use DateTimeImmutable;
 use JsonSerializable;
 use OCP\AppFramework\Db\Entity;
 
@@ -13,11 +13,11 @@ class Item extends Entity implements JsonSerializable {
     protected string $name;
     protected ?string $description = null;
     protected ?string $serialNumber = null;
-    protected ?DateTime $acquisitionDate = null;
+    protected ?DateTimeImmutable $acquisitionDate = null;
     protected ?int $value = 0;
     protected ?string $location = null;
-    protected ?DateTime $createdAt = null;
-    protected ?DateTime $updatedAt = null;
+    protected ?DateTimeImmutable $createdAt = null;
+    protected ?DateTimeImmutable $updatedAt = null;
 
     public function jsonSerialize(): array {
         return [
@@ -28,8 +28,8 @@ class Item extends Entity implements JsonSerializable {
             'acquisitionDate' => $this->acquisitionDate ? $this->acquisitionDate->format('Y-m-d') : null,
             'value' => $this->value,
             'location' => $this->location,
-            'createdAt' => $this->createdAt ? $this->createdAt->format(DateTime::ATOM) : null,
-            'updatedAt' => $this->updatedAt ? $this->updatedAt->format(DateTime::ATOM) : null,
+            'createdAt' => $this->createdAt ? $this->createdAt->format(DateTimeImmutable::ATOM) : null,
+            'updatedAt' => $this->updatedAt ? $this->updatedAt->format(DateTimeImmutable::ATOM) : null,
         ];
     }
 }

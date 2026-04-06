@@ -1,7 +1,7 @@
 <?php
 namespace OCA\ClubSuiteInventory\Db;
 
-use DateTime;
+use DateTimeImmutable;
 
 class ItemEntity {
     private ?int $id = null;
@@ -9,7 +9,7 @@ class ItemEntity {
     private ?string $description = null;
     private ?int $categoryId = null;
     private ?string $qrCode = null;
-    private ?DateTime $createdAt = null;
+    private ?DateTimeImmutable $createdAt = null;
 
     public function __construct(string $name) {
         $this->name = $name;
@@ -25,6 +25,6 @@ class ItemEntity {
     public function setCategoryId(?int $id): void { $this->categoryId = $id; }
     public function getQrCode(): ?string { return $this->qrCode; }
     public function setQrCode(?string $q): void { $this->qrCode = $q; }
-    public function getCreatedAt(): ?DateTime { return $this->createdAt; }
-    public function setCreatedAt(?DateTime $dt): void { $this->createdAt = $dt; }
+    public function getCreatedAt(): ?DateTimeImmutable { return $this->createdAt; }
+    public function setCreatedAt(?DateTimeImmutable $dt): void { $this->createdAt = $dt; }
 }

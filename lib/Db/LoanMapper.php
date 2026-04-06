@@ -1,7 +1,7 @@
 <?php
 namespace OCA\ClubSuiteInventory\Db;
 
-use DateTime;
+use DateTimeImmutable;
 
 class LoanMapper {
     private $connection;
@@ -14,9 +14,9 @@ class LoanMapper {
         $stmt->execute();
         $res = [];
         while ($row = $stmt->fetch()) {
-            $l = new LoanEntity((int)$row['item_id'], $row['user_id'], new DateTime($row['loan_date']));
+            $l = new LoanEntity((int)$row['item_id'], $row['user_id'], new DateTimeImmutable($row['loan_date']));
             $l->setId((int)$row['id']);
-            $l->setReturnDate(!empty($row['return_date']) ? new DateTime($row['return_date']) : null);
+            $l->setReturnDate(!empty($row['return_date']) ? new DateTimeImmutable($row['return_date']) : null);
             $l->setStatus($row['status'] ?? null);
             $res[] = $l;
         }
@@ -29,9 +29,9 @@ class LoanMapper {
         $stmt->execute([$id]);
         $row = $stmt->fetch();
         if (!$row) return null;
-        $l = new LoanEntity((int)$row['item_id'], $row['user_id'], new DateTime($row['loan_date']));
+        $l = new LoanEntity((int)$row['item_id'], $row['user_id'], new DateTimeImmutable($row['loan_date']));
         $l->setId((int)$row['id']);
-        $l->setReturnDate(!empty($row['return_date']) ? new DateTime($row['return_date']) : null);
+        $l->setReturnDate(!empty($row['return_date']) ? new DateTimeImmutable($row['return_date']) : null);
         $l->setStatus($row['status'] ?? null);
         return $l;
     }
